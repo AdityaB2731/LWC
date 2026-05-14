@@ -39,5 +39,7 @@ sfdx force:lightning:component:create --type lwc --componentname employeeManager
 the above step is optional we can also do it inside vs code
 
 sfdx force:source:deploy -p force-app
+//if did not worked then this
+sfdx force:source:deploy -p force-app -u myorg
 
 sfdx force:org:open
