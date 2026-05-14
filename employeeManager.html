@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Employee Management System">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input label="Employee Name" onchange={handleName}></lightning-input>
+
+            <lightning-input label="Employee ID" type="number" onchange={handleId}></lightning-input>
+
+            <lightning-input label="Salary" type="number" onchange={handleSalary}></lightning-input>
+
+            <lightning-input label="Email" type="email" onchange={handleEmail}></lightning-input>
+
+            <lightning-combobox
+                label="Department"
+                options={deptOptions}
+                onchange={handleDept}>
+            </lightning-combobox>
+
+            <lightning-input label="Joining Date" type="date" onchange={handleDate}></lightning-input>
+
+            <br/>
+
+            <lightning-button 
+                label="Add Employee" 
+                variant="brand"
+                onclick={handleSave}>
+            </lightning-button>
+
+            <br/><br/>
+
+            <h3>Employee List</h3>
+
+            <!-- ✅ FIXED LIST RENDERING -->
+            <template if:true={employees.length}>
+                <template for:each={employees} for:item="emp">
+                    <div key={emp.empId}>
+                        {emp.empId} - {emp.name} - {emp.dept} - {emp.salary}
+                    </div>
+                </template>
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>

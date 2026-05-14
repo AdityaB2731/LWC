@@ -1,0 +1,43 @@
+
+sf project generate --name employeeProj
+
+cd employeeProj
+
+code .
+
+sf org login web --alias myorg
+Create LWC
+
+Inside VS Code:
+
+Right click lwc
+Create Lightning Web Component
+Name:
+employeeManager
+
+sf project deploy start -o myorg
+
+sf org open -o myorg
+Add Component
+Lightning App Builder
+New App Page
+Drag:
+employeeManager
+
+
+// now sfdx if there
+
+sfdx force:project:create -n employeeProj
+
+cd employeeProj
+
+code .
+
+sfdx force:auth:web:login -a myorg
+Create LWC
+sfdx force:lightning:component:create --type lwc --componentname employeeManager --outputdir force-app/main/default/lwc
+the above step is optional we can also do it inside vs code
+
+sfdx force:source:deploy -p force-app
+
+sfdx force:org:open
